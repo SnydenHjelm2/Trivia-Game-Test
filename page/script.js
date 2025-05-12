@@ -15,7 +15,7 @@ document.querySelector("#q-b").addEventListener("click", async () => {
     questionOBJ = q;
     console.log(q);
     if (q.type === "multiple") {
-        qP.textContent = q.question.replace("/&quot;", '"');
+        qP.textContent = q.question.replace(/&quot;/g, '"').replace(/&#039;/g, "'");
         let allAnswers = [];
         allAnswers.push(q.correct_answer);
         for (let a of q.incorrect_answers) {
